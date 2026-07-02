@@ -656,3 +656,12 @@ function renderMultisenso(item) {
 
 // Run init
 init();
+
+// iOS Keyboard Scroll Bug Fix
+document.addEventListener('focusout', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 100);
+    }
+});
