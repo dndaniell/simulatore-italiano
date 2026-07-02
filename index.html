@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Italian Tutor Daniel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- PWA Manifest & Theme -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d1117">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+    <!-- Background Elements for Neon Glassmorphism -->
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+
+    <div class="app-container">
+        
+        <!-- Welcome View -->
+        <div id="view-welcome" class="view active">
+            <div class="welcome-graphics">
+                <div class="welcome-sticker"></div>
+            </div>
+            <div class="welcome-text">
+                <h2>Road to<br><span>MAMMAMIA!</span></h2>
+            </div>
+            <div style="padding: 0 24px; width: 100%;">
+                <button id="start-btn" class="start-btn">Start Learning</button>
+            </div>
+        </div>
+
+        <!-- Dashboard & Content wrapper (Hidden initially) -->
+        <div id="app-main-views" class="hidden" style="height: 100%; display: flex; flex-direction: column;">
+            
+            <!-- Main Content Area -->
+            <main id="main-content" class="content-area">
+                
+                <!-- 1. Dashboard View (Home Icon) -->
+                <div id="view-dashboard" class="view active">
+                    <!-- Header for Dashboard/Modules -->
+                    <header class="header" style="padding: 24px 0 16px;">
+                        <div class="profile-section">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='background:%236b7280;'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E" alt="Profile" class="profile-avatar" id="header-avatar" style="cursor:pointer; object-fit: cover;">
+                            <div class="header-text">
+                                <span id="app-subtitle">Hello,</span>
+                                <h1 id="app-title" style="font-size: 2rem; line-height: 1.1; margin-top: 4px;">Ready to practice?</h1>
+                            </div>
+                        </div>
+                        <button class="icon-btn" id="header-action-btn">
+                            <i data-lucide="bell"></i>
+                        </button>
+                    </header>
+
+
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 class="section-title" style="margin: 0;">Let's practice</h3>
+                        <button class="icon-btn" id="see-all-courses-btn" style="border-radius: 50%; padding: 8px;">
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                        <div class="preview-card glass" data-view="quiz" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; cursor: pointer; transition: transform 0.2s;">
+                            <div class="icon-wrapper" style="margin-bottom: 12px;">
+                                <i data-lucide="help-circle" class="icon-neon" size="36"></i>
+                            </div>
+                            <span class="card-title" style="font-size: 1.1rem; color: var(--text-main);">Quiz</span>
+                        </div>
+                        <div class="preview-card glass" data-view="traduzioni" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; cursor: pointer; transition: transform 0.2s;">
+                            <div class="icon-wrapper" style="margin-bottom: 12px;">
+                                <i data-lucide="languages" class="icon-neon" size="36"></i>
+                            </div>
+                            <span class="card-title" style="font-size: 1.1rem; color: var(--text-main);">Traduzioni</span>
+                        </div>
+                        <div class="preview-card glass" data-view="commedia" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; cursor: pointer; transition: transform 0.2s;">
+                            <div class="icon-wrapper" style="margin-bottom: 12px;">
+                                <i data-lucide="smile" class="icon-neon" size="36"></i>
+                            </div>
+                            <span class="card-title" style="font-size: 1.1rem; color: var(--text-main);">Commedia</span>
+                        </div>
+                        <div class="preview-card glass" data-view="multisenso" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; cursor: pointer; transition: transform 0.2s;">
+                            <div class="icon-wrapper" style="margin-bottom: 12px;">
+                                <i data-lucide="brain-circuit" class="icon-neon" size="36"></i>
+                            </div>
+                            <span class="card-title" style="font-size: 1.1rem; color: var(--text-main);">Multisenso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Courses View (Folder Icon) -->
+                <div id="view-courses" class="view hidden">
+                    <h3 class="section-title">All Categories</h3>
+                    <div class="grid-menu">
+                        <div class="menu-card glass" data-view="quiz">
+                            <div class="icon-wrapper">
+                                <i data-lucide="help-circle" class="icon-neon" size="32"></i>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Quiz</span>
+                                <span class="card-subtitle">Grammar Practice</span>
+                            </div>
+                        </div>
+                        <div class="menu-card glass" data-view="traduzioni">
+                            <div class="icon-wrapper">
+                                <i data-lucide="languages" class="icon-neon" size="32"></i>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Traduzioni</span>
+                                <span class="card-subtitle">Translate Sentences</span>
+                            </div>
+                        </div>
+                        <div class="menu-card glass" data-view="commedia">
+                            <div class="icon-wrapper">
+                                <i data-lucide="smile" class="icon-neon" size="32"></i>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Commedia</span>
+                                <span class="card-subtitle">Jokes & Puns</span>
+                            </div>
+                        </div>
+                        <div class="menu-card glass" data-view="multisenso">
+                            <div class="icon-wrapper">
+                                <i data-lucide="brain-circuit" class="icon-neon" size="32"></i>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Multisenso</span>
+                                <span class="card-subtitle">Context is King</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Wheel of Fortune View (Compass Icon) -->
+                <div id="view-wheel" class="view hidden">
+                    <div style="text-align: center;">
+                        <h2 class="module-title" style="margin-bottom: 8px;">Pillole del Giorno</h2>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Spin the wheel to discover a new Italian idiom or slang!</p>
+                    </div>
+                    
+                    <div class="wheel-container">
+                        <div class="wheel-pointer"></div>
+                        <div class="wheel" id="wheel"></div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button id="spin-btn" class="spin-btn">Gira la ruota!</button>
+                    </div>
+                    
+                    <!-- Container to inject the pillola result -->
+                    <div id="wheel-result-content" class="hidden mt-4">
+                        <!-- Result injected by JS -->
+                    </div>
+                </div>
+
+                <!-- 4. Profile & Settings View (User Icon) -->
+                <div id="view-profile" class="view hidden">
+                    <div class="profile-header" style="position: relative;">
+                        <div style="position: relative; display: inline-block;">
+                            <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='background:%236b7280;'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E" alt="Profile Large" class="avatar" id="profile-avatar-large" style="object-fit: cover;">
+                            <button id="edit-avatar-btn" class="icon-btn" style="position: absolute; bottom: 10px; right: -10px; padding: 8px; border-radius: 50%; background: var(--primary);">
+                                <i data-lucide="camera" size="16" color="#fff"></i>
+                            </button>
+                        </div>
+                        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                        <h2 class="module-title" style="margin-bottom: 4px; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <span id="profile-name-display">Student</span>
+                            <button id="edit-name-btn" style="background: none; border: none; cursor: pointer;"><i data-lucide="edit-2" size="16" color="var(--text-muted)"></i></button>
+                        </h2>
+                        <input type="text" id="profile-name-input" class="hidden text-input" style="text-align: center; margin-bottom: 8px; padding: 8px; border-radius: 12px; font-size: 1.2rem; font-weight: bold;" value="Student">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Level: <span id="profile-level" style="color: var(--accent-pink); font-weight: bold;">Beginner</span></p>
+                    </div>
+
+                    <!-- Progress Section -->
+                    <div class="stats-card glass" id="progress-card" style="margin-bottom: 24px;">
+                        <div class="stat-row">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value"><span id="mastered-count">0</span> / <span id="total-count">0</span></span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="glass module-card" style="display: none;" id="old-tips">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 16px; color: var(--text-main);">Tips for Improvement</h3>
+                        <div class="rule-box" id="profile-tips">
+                            <!-- Dynamic tips go here -->
+                        </div>
+                    </div>
+
+                    <div class="glass module-card">
+                        <h3 class="settings-title" style="font-size: 1.1rem; margin-bottom: 16px;">Settings</h3>
+                        
+                        <div class="settings-row">
+                            <div>
+                                <strong class="settings-title" style="font-size: 1.05rem;">Theme</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Switch between Dark/Light glass.</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="slider-toggle"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="settings-row" style="flex-direction: column; align-items: flex-start; gap: 16px;">
+                            <div style="width: 100%;">
+                                <strong class="settings-title" style="font-size: 1.05rem;">Difficulty Level</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Select the maximum difficulty of exercises.</p>
+                            </div>
+                            <div style="width: 100%;" class="slider-container">
+                                <input type="range" min="0" max="3" value="0" class="difficulty-slider" id="difficulty-slider">
+                                <div class="difficulty-labels">
+                                    <div class="diff-label">Easy</div>
+                                    <div class="diff-label">Medium</div>
+                                    <div class="diff-label">High</div>
+                                    <div class="diff-label">Mamma Mia!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Module Container (For executing an exercise) -->
+                <div id="view-module" class="view hidden">
+                    <div style="display: flex; align-items: center; margin-bottom: 24px; margin-top: 16px;">
+                        <button class="icon-btn" id="back-to-courses-btn" style="border-radius: 50%; padding: 8px; margin-right: 16px;">
+                            <i data-lucide="arrow-left"></i>
+                        </button>
+                        <div>
+                            <span id="module-subtitle" style="font-size: 0.8rem; color: var(--text-muted);">Practicing</span>
+                            <h2 id="module-title" class="module-title" style="font-size: 1.3rem; margin:0;">Category</h2>
+                        </div>
+                    </div>
+                    <div id="module-content">
+                        <!-- Content injected via JS -->
+                    </div>
+                    
+                    <!-- Tutor Daniel Feedback Card (Hidden by default) -->
+                    <div id="tutor-feedback" class="tutor-card glass hidden">
+                        <div class="tutor-header">
+                            <img src="https://ui-avatars.com/api/?name=Daniel&background=ec4899&color=fff" alt="Daniel" class="avatar" style="width: 48px; height: 48px;">
+                            <div class="tutor-info">
+                                <h4>Tutor Daniel</h4>
+                                <span id="tutor-status" class="status">Insight</span>
+                            </div>
+                        </div>
+                        <p id="tutor-message" class="tutor-message"></p>
+                        <button id="next-btn" class="primary-btn mt-4">Continua</button>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Floating Bottom Navigation -->
+            <nav class="bottom-nav glass">
+                <button class="nav-item active" id="nav-home" data-target="view-dashboard">
+                    <i data-lucide="home"></i>
+                </button>
+                <button class="nav-item" id="nav-courses" data-target="view-courses">
+                    <i data-lucide="folder"></i>
+                </button>
+                <button class="nav-item" id="nav-wheel" data-target="view-wheel">
+                    <i data-lucide="compass"></i>
+                </button>
+                <button class="nav-item" id="nav-profile" data-target="view-profile">
+                    <i data-lucide="user"></i>
+                </button>
+            </nav>
+            <!-- Notification Modal for Tips -->
+            <div id="tips-modal" class="hidden" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px;">
+                <div class="glass module-card" style="width: 100%; position: relative;">
+                    <button id="close-tips-btn" style="position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer;"><i data-lucide="x" class="settings-title"></i></button>
+                    <h3 class="settings-title" style="font-size: 1.3rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;"><i data-lucide="bell-ring" class="icon-neon"></i> I tuoi Consigli</h3>
+                    <div class="rule-box" id="modal-tips-content">
+                        <!-- Dynamic tips go here -->
+                    </div>
+                    <button class="primary-btn mt-4" id="modal-close-btn">Chiudi</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
