@@ -569,7 +569,7 @@ function renderCommedia(item) {
             </div>
             
             <button id="explain-btn" class="primary-btn mt-4">Non capisco (I don't get it)</button>
-            <button id="got-it-btn" class="primary-btn mt-4" style="background: rgba(255,255,255,0.1); margin-top:12px;">Ho capito! (I got it!)</button>
+            <button id="got-it-btn" class="primary-btn mt-4" style="margin-top:12px;">Ho capito! (I got it!)</button>
             
             <button class="primary-btn mt-4 inline-next-btn hidden" style="background: var(--accent-cyan);">Continua <i data-lucide="arrow-right" style="vertical-align: middle;"></i></button>
         </div>
