@@ -580,6 +580,10 @@ body.light-theme .app-container {
     background: rgba(255, 255, 255, 0.4);
 }
 
+body.light-theme .progress-bar-container {
+    background: rgba(0, 0, 0, 0.1);
+}
+
 body.light-theme .stat-value,
 body.light-theme .stat-label,
 body.light-theme .section-title,
