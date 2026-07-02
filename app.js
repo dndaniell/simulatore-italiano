@@ -607,7 +607,7 @@ function renderMultisenso(item) {
             <h2 class="module-title">Multisenso</h2>
             <p style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-main);">${item.sentence}</p>
             
-            <p style="margin-bottom: 16px; font-weight: 500; color: #e5e7eb;">Cosa significa la parola sottolineata?</p>
+            <p style="margin-bottom: 16px; font-weight: 500; color: var(--text-main);">Cosa significa la parola sottolineata?</p>
             
             <div id="options-container">
                 ${item.options.map((opt, index) => `
